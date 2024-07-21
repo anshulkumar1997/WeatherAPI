@@ -1,4 +1,9 @@
-public class WeatherAPI {
+/* This class explains the use of the api.open-meteo.com API to get the current weather in a given city
+ The API is used in a RESTFul way, so we use the HTTP Class to send our request and receive a response
+ The response is converted into a deserialised using JSON Object and then into a Apex Class to be used
+*/
+public with Sharing class WeatherAPI {
+    // Method to get the Current weather in a city with GET Call, REST API
     public static void getWeatherOpenMeteoMethod(){
     	Http http = new Http();
         HttpRequest request = new HttpRequest();
@@ -11,6 +16,7 @@ public class WeatherAPI {
         system.debug(hourly_unit);
         system.debug(hours);
     }
+    // Wrapper class to support the deserialisation of RESTful JSON response
     Public class weatherWrapper{
         Public Double latitude;
         Public Double longitude;
@@ -22,6 +28,7 @@ public class WeatherAPI {
         hourly_units hourly_units = new hourly_units();
         hourly hourly = new hourly();
     }
+    // Supporting the Wrapper with inside JSONs
     public class hourly_units{
             Public String temperature_2m;
             Public String relative_humidity_2m;
