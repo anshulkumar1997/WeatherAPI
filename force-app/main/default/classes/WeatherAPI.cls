@@ -31,11 +31,7 @@ public with Sharing class WeatherAPI {
         if(response.getStatusCode()==200){
             results = (weatherAPIInputWrapper) JSON.deserialize(response.getBody(),weatherAPIInputWrapper.class);
             weatherAPIOutputWrapper resultsOutput = new weatherAPIOutputWrapper();
-            resultsOutput.name = results.location.name;
-            resultsOutput.region = results.location.region;
-            resultsOutput.country = results.location.country;
-            resultsOutput.localtime = results.location.localtime;
-            resultsOutput.tz_id = results.location.tz_id;
+            resultsOutput.locationOutput=results.location;
             resultsOutput.temp_c = results.current.temp_c;
             resultsOutput.temp_f = results.current.temp_f;
             resultsOutput.wind_kph = results.current.wind_kph;
@@ -67,15 +63,7 @@ public with Sharing class WeatherAPI {
     //Wrapper Class for Output to LWC to display on Screen
     public class weatherAPIOutputWrapper{
         @AuraEnabled
-        public String name;
-        @AuraEnabled
-        public String region;
-        @AuraEnabled
-        public String country;
-        @AuraEnabled
-        public String localtime;
-        @AuraEnabled
-        public String tz_id;
+        public location locationOutput;
         @AuraEnabled
         public Decimal temp_c;
         @AuraEnabled
@@ -137,13 +125,21 @@ public with Sharing class WeatherAPI {
         public List<Decimal> dew_point_2m;
     }
     public class location{
+        @AuraEnabled
         public String name;
+        @AuraEnabled
         public String region;
+        @AuraEnabled
         public String country;
+        @AuraEnabled
         public Decimal lat;
+        @AuraEnabled
         public Decimal lon;
+        @AuraEnabled
         public String tz_id;
+        @AuraEnabled
         public Decimal localtime_epoch;
+        @AuraEnabled
         public String localtime;
     }  
     public class current{

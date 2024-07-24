@@ -6,7 +6,7 @@ export default class WeatherAPI extends LightningElement {
     location = '';
     locationWithoutSpace ='';
     results;
-    locationResults;
+    
 
     handleLocationChange(event) {
         this.location = event.target.value;
@@ -32,11 +32,6 @@ export default class WeatherAPI extends LightningElement {
             .then(result => {
                 if(result.StatusCode===200){
                     this.results = result;
-                    /*LightningAlert.open({
-                        message: 'This is the Temperature: '+result.temp_c,
-                        theme: 'Success', 
-                        label: 'Location!', 
-                    });*/
                 }
                 else{
                     LightningAlert.open({
