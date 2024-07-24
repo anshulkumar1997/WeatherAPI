@@ -1,0 +1,28 @@
+<template>
+    <lightning-card  title="Current Weather">
+        <div class="slds-var-m-around_medium">
+            <h2 class="slds-text-heading_small slds-var-m-bottom_medium">
+                Weather of a City
+            </h2>
+            <div class="slds-var-m-bottom_medium">
+                <lightning-input type="text" label="City Name" value={location} onchange={handleLocationChange}></lightning-input>
+            </div>
+            <lightning-button label="Get Weather" variant="Brand" icon-name="custom:custom60" class="slds-var-m-bottom_medium" onclick={getWeather}></lightning-button>
+            <div class="slds-var-m-around_medium">
+                <template if:true={results}>
+                    <p>Name:- {results.name}</p>
+                    <p>Region:- {results.region}</p>
+                    <p>Country:- {results.country}</p>
+                    <p>Local Time:- {results.localtime}</p>
+                    <p>TimeZone:- {results.tz_id}</p>
+                    <p>Temperature:- {results.temp_c}&deg;C / {results.temp_f}&deg;F</p>
+                    <p>Temperature(Feels Like):- {results.feelslike_c}&deg;C / {results.feelslike_f}&deg;F</p>
+                    <p>Wind:- {results.wind_mph}MPH / {results.wind_kph}</p>
+                    <p>Cloud - {results.cloud}</p>
+                    <p>Pressure:- {results.pressure_mb}mb / {results.pressure_in}in</p>
+                    <p>Precipitation:- {results.precip_mm}mm / {results.precip_in}in</p>
+                </template>
+            </div>
+        </div>
+    </lightning-card>
+</template>
