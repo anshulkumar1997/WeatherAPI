@@ -22,6 +22,7 @@
     <isOmniPinnedViewEnabled>false</isOmniPinnedViewEnabled>
     <label>Weather</label>
     <navType>Standard</navType>
+    <tabs>standard-home</tabs>
     <uiType>Lightning</uiType>
     <utilityBar>Weather_UtilityBar</utilityBar>
 </CustomApplication>

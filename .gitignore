@@ -45,3 +45,5 @@ $RECYCLE.BIN/
 **/venv/
 
 manifest/package.xml
+force-app/main/default/labels/CustomLabels.labels-meta.xml
+force-app/main/default/remoteSiteSettings/ApexDevNet.remoteSite-meta.xml
